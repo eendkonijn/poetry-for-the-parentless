@@ -1,0 +1,16 @@
+.header {
+  padding-left: 1.0875rem;
+  padding-top: 0.5rem;
+  display: flex;
+  background: white;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 12;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.heading {
+  color: black;
+  margin: auto;
+}

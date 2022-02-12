@@ -1,0 +1,9 @@
+.home {
+  margin-top: 5%;
+  position: relative;
+}
+
+.home--buttons {
+  display: flex;
+  justify-content: center;
+}

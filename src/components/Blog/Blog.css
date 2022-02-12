@@ -1,0 +1,42 @@
+.blog-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  margin-top: 4.35rem !important;
+}
+
+.blog-item {
+  text-align: center;
+  font-size: 22px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-item--text {
+  margin-bottom: auto;
+}
+
+.blog-item--header {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+  .blog-item {
+    width: 100%;
+  }
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../../assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("woff2");
+}
+
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  width: 100%;
+  font-size: inherit;
+  font-family: "Open Sans";
+}

@@ -1,15 +1,15 @@
 import React from "react"
 import Layout from "../components/layout"
-import Home from "../components/Home/Home"
+import Over from "../components/Over/Over"
 
-const IndexPage = props => {
+const OverPage = props => {
   return (
     <>
       <Layout>
-        <Home />
+        <Over />
       </Layout>
     </>
   )
 }
 
-export default IndexPage
+export default OverPage

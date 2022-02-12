@@ -1,0 +1,13 @@
+.content--flexbox {
+  display: flex;
+}
+
+.over--image {
+  height: 400px;
+  border-radius: 45%;
+  margin-left: 20%;
+}
+
+.over--text {
+  margin-left: 10%;
+}
