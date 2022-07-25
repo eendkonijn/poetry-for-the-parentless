@@ -1,13 +1,76 @@
 .content--flexbox {
   display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .content--flexbox {
+    flex-direction: column-reverse;
+  }
 }
 
 .over--image {
-  height: 400px;
+  width: 60%;
+  margin-inline: auto;
   border-radius: 45%;
-  margin-left: 20%;
+}
+
+@media (min-width: 768px) {
+  .over--image {
+    width: 50%;
+    margin-inline: initial;
+  }
 }
 
 .over--text {
-  margin-left: 10%;
+  margin-left: 2rem;
+}
+
+@media (max-width: 768px) {
+  .over--text {
+    margin-bottom: 2rem;
+  }
+}
+
+.over--text li {
+  padding: 0.15em 0 0.5em 2em;
+  text-indent: 0.4em;
+  font-weight: bold;
+  list-style: none;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  /* background-position: left; */
+}
+
+.dark-mountain-icon {
+  background-image: url("../../assets/images/dark-mountain-favicon.ico");
+}
+
+.plum-village-icon {
+  background-image: url("../../assets/images/plum-village-icon.png");
+}
+
+.dhamma-icon {
+  background-image: url("../../assets/images/dhamma-icon.ico");
+}
+
+.life-icon {
+  background-image: url("../../assets/images/embryoicon.webp");
+}
+
+.over--text li::before {
+  /* list-style-image: url("../../assets/images/dark-mountain-favicon.ico"); */
+  /* padding: 0.15em 0 0.5em 1.5em; */
+  /* margin-bottom: 0.2rem; */
+  /* text-indent: 0.4em; */
+  /* font-weight: bold; */
+  /* list-style: none; */
+  /* width: 40px;
+  height: 40px;
+  float: left;
+  margin: 0 6px 6px 0;
+  display: block;
+  content: "";
+  background-repeat: no-repeat;
+  background-image: url("../../assets/images/dark-mountain-favicon.ico"); */
 }

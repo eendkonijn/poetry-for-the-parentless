@@ -12,14 +12,29 @@ exports.createPages = ({ actions, graphql }) => {
 
   const postTemplate = path.resolve("./src/templates/blogPost.js")
   const podcastTemplate = path.resolve("./src/templates/podcastPage.js")
+  const poemTemplate = path.resolve("./src/templates/poemPage.js")
 
   return graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
             frontmatter {
               path
+              type
+            }
+          }
+          next {
+            frontmatter {
+              path
+              title
+              type
+            }
+          }
+          previous {
+            frontmatter {
+              path
+              title
               type
             }
           }
@@ -30,17 +45,35 @@ exports.createPages = ({ actions, graphql }) => {
     if (res.errors) {
       return Promise.reject(res.errors)
     }
-    res.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    res.data.allMarkdownRemark.edges.forEach(({ node, next, previous }) => {
       if (node.frontmatter.type === "podcast") {
         createPage({
           path: node.frontmatter.path,
           component: podcastTemplate,
+          context: {
+            next,
+            previous,
+          },
         })
       }
       if (node.frontmatter.type === "blogpost") {
         createPage({
           path: node.frontmatter.path,
           component: postTemplate,
+          context: {
+            next,
+            previous,
+          },
+        })
+      }
+      if (node.frontmatter.type === "poem") {
+        createPage({
+          path: node.frontmatter.path,
+          component: poemTemplate,
+          context: {
+            next,
+            previous,
+          },
         })
       }
     })

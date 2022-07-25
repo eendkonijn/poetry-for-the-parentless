@@ -23,18 +23,12 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* background: #fcfbf8; */
     background: ${({ theme }) => theme.primaryLight};
     color: ${({ theme }) => theme.primaryDark};
   }
 
   main, footer {
     position: relative;
-  }
-  
-  div {
-    font-family: "Roboto";
-    //font-family: "Cormorant Garamond";
   }
   
   h1, h2, h3, h4, h5 {
@@ -44,7 +38,7 @@ export const GlobalStyles = createGlobalStyle`
   .content-container{
     margin: 0 auto;
     margin-top: 5%;
-    width: 728px;
+    // width: 728px;
 
     @media only screen and (max-width: 480px) {
       width: 100%;
@@ -62,9 +56,13 @@ export const GlobalStyles = createGlobalStyle`
     color: #4d3300
   }
 
-  a:visited {
-    // color: ${({ theme }) => theme.primaryDark};
-  }
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.underline {
+  text-decoration: underline;
+}
 
   button {
     background-color: ${({ theme }) => theme.primaryLight};

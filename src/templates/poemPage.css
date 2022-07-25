@@ -1,0 +1,46 @@
+.poem {
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "Cormorant Garamond";
+  width: 728px;
+
+  @media only screen and (max-width: 480px) {
+    max-width: initial;
+    width: 100%;
+  }
+}
+
+.poem-arrows {
+  width: 100%;
+}
+
+.poem-arrows > * {
+  font-size: 1.626rem;
+}
+
+.poem-arrows--right {
+  float: right;
+}
+
+.poem-random {
+  width: 100%;
+  text-align: center;
+}
+
+.hv {
+  visibility: hidden;
+}
+
+.fade-in {
+  animation: fadeIn 3s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

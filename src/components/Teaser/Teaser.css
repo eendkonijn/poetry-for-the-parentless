@@ -1,4 +1,8 @@
 .teaser {
-    padding: 0 24px;
-    text-align: center;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.teaser--paragraph {
+  font-size: larger;
 }

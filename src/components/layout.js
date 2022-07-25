@@ -41,11 +41,7 @@ const Layout = ({ children }) => {
             marginTop: `2rem`,
             fontSize: `12px`,
           }}
-        >
-          {/* © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a> */}
-        </footer>
+        ></footer>
       </div>
     </>
   )

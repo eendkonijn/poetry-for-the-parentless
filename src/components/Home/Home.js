@@ -8,32 +8,18 @@ const Podcast = props => {
     <div className="podcast content-container">
       {" "}
       <Teaser
-        heading="De wereld brandt en ons verlangen ook"
-        paragraph="De mens wordt uitgenodigd om naar binnen te gaan. We gaan op avontuur in onze geest en vinden de mooiste schatten en de zwartste gaten."
+        heading="We are the parentless"
+        paragraph="The world is our ancestry. Our liberation is one from fiction."
         paragraphCursive
       />{" "}
-      <p>
-        Veel mensen voelen dat de tijd waarin we leven vraagt om... ja om wat
-        eigenlijk? Minder neoliberalisme? Meer verbinding met onze natuur?
-        'Omzien naar elkaar'? René interviewt mensen die hierover mooie dingen
-        te vertellen hebben. En hij houdt een blog bij met de dingen die hij
-        zelf ontdekt.{" "}
-      </p>
+      <p></p>
       <div className="home--buttons">
         <button
           onClick={() => {
-            navigate("/podcast")
-          }}
-          style={{ marginRight: "5.8rem" }}
-        >
-          Podcast
-        </button>
-        <button
-          onClick={() => {
-            navigate("/blog")
+            navigate("/orphaned")
           }}
         >
-          Blog
+          Read On
         </button>
       </div>
     </div>

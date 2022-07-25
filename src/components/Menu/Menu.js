@@ -8,24 +8,12 @@ const Menu = ({ open, setOpen }) => {
 
   return (
     <>
-      <nav className={styles} open={open}>
-        <Link to="/podcast" onClick={() => setOpen(!open)}>
-          Podcast
-        </Link>
-        <Link to="/blog" onClick={() => setOpen(!open)}>
-          Blog
-        </Link>
-        <Link to="/over" onClick={() => setOpen(!open)}>
-          Over
-        </Link>
-        {/* <Link to="/doneren" onClick={() => setOpen(!open)}>
-          Doneren
-        </Link> */}
-      </nav>
       <nav className="menu--large">
-        <Link to="/podcast">Podcast</Link>
-        <Link to="/blog">Blog</Link>
-        <Link to="/over">Over</Link>
+        {/* <Link to="/blog">Blog</Link> */}
+        {/* <Link to="/poems" onClick={() => setOpen(!open)}>
+          Poems
+        </Link> */}
+        <Link to="/over">?</Link>
         {/* <Link to="Doneren">Doneren</Link> */}
       </nav>
     </>

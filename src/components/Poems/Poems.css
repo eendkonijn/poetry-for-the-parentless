@@ -1,0 +1,28 @@
+.poem-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-wrap: wrap;
+  margin-top: 4.35rem !important;
+}
+
+.poem-item {
+  text-align: center;
+  font-size: 22px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.poem-item--text {
+  margin-bottom: auto;
+}
+
+.poem-item--header {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+  .poem-item {
+    width: 100%;
+  }
+}

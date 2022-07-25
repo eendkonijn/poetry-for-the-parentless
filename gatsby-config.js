@@ -40,6 +40,13 @@ module.exports = {
         path: `${__dirname}/src/podcasts`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `poems`,
+        path: `${__dirname}/src/poems`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -51,7 +58,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/vogel.jpg`, // This path is relative to the root of the site.
+        icon: `src/assets/images/embryoicon.webp`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-gatsby-cloud`,
