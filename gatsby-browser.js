@@ -1,7 +1,14 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+// /**
+//  * Implement Gatsby's Browser APIs in this file.
+//  *
+//  * See: https://www.gatsbyjs.com/docs/browser-apis/
+//  */
 
-// You can delete this file if you're not using it
+// // You can delete this file if you're not using it
+// const React = require("react")
+// const Layout = require("./src/components/layout")
+
+// // Wraps every page in a component
+// exports.wrapPageElement = ({ element, props }) => {
+//   return <Layout {...props}>{element}</Layout>
+// }

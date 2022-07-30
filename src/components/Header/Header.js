@@ -12,6 +12,7 @@ const Header = props => {
       src="../../assets/images/embryoicon.webp"
       alt="ruin icon"
       className="header--icon"
+      loading="eager"
     />
   )
 

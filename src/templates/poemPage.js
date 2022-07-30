@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import { Link } from "gatsby"
@@ -6,14 +6,43 @@ import "./poemPage.css"
 
 const Template = ({ data, pageContext }) => {
   const post = data.markdownRemark
-  const { title, date } = post.frontmatter
+  const { title } = post.frontmatter
   const { previous, next } = pageContext
+
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+
+  // the required distance between touchStart and touchEnd to be detected as a swipe
+  const minSwipeDistance = 50
+
+  const onTouchStart = e => {
+    setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = e => setTouchEnd(e.targetTouches[0].clientX)
+
+  const onTouchEnd = () => {
+    let prevLink = document.getElementById("prevLink")
+    let nextLink = document.getElementById("nextLink")
+
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+    if (
+      (isLeftSwipe && pageContext.next) ||
+      (isRightSwipe && pageContext.previous)
+    ) {
+      isLeftSwipe ? nextLink.click() : prevLink.click()
+    }
+  }
 
   useEffect(() => {
     let prevLink = document.getElementById("prevLink")
     let nextLink = document.getElementById("nextLink")
 
-    document.addEventListener("keydown", ({ key }) => {
+    const handleKeyDown = ({ key }) => {
       switch (key) {
         case "ArrowLeft":
           console.log("Left arrow")
@@ -24,18 +53,30 @@ const Template = ({ data, pageContext }) => {
           nextLink.click()
           break
       }
-    })
+    }
+
+    document.addEventListener("keydown", handleKeyDown)
+
+    return () => document.removeEventListener("keydown", handleKeyDown)
   })
 
   return (
     <Layout>
-      <div className="content-container">
+      <div
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        className="content-container"
+      >
         <div className="poem fade-in">
           <h2>{title}</h2>
           <div dangerouslySetInnerHTML={{ __html: post.html }} /> <br />
         </div>
         <div className="poem-arrows">
           <Link
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
             id="prevLink"
             className={
               previous && previous.frontmatter.type === "poem" ? "" : "hv"
@@ -61,9 +102,9 @@ const Template = ({ data, pageContext }) => {
             </>
           )}
         </div>
-        <div className="poem-random">
+        {/* <div className="poem-random">
           <Link to="">?</Link>
-        </div>
+        </div> */}
       </div>
     </Layout>
   )
@@ -83,28 +124,5 @@ export const postQuery = graphql`
     }
   }
 `
-
-// export const query = graphql`
-//   query PoemQuery {
-//     allMarkdownRemark(
-//       sort: { order: RAND, fields: frontmatter___date }
-//       filter: { frontmatter: { type: { eq: "poem" } } }
-//     ) {
-//       totalCount
-//       edges {
-//         node {
-//           id
-//           frontmatter {
-//             title
-//             date(formatString: "MMMM DD, YYYY")
-//             path
-//             tags
-//             excerpt
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
 
 export default Template

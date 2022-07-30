@@ -8,6 +8,7 @@ const Over = props => {
       src="../../assets/images/portrait-rene.jpg"
       alt="rene portrait"
       className="over--image"
+      loading="eager"
     />
   )
 
